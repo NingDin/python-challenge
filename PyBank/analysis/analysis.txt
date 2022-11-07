@@ -1,0 +1,10 @@
+PS C:\Users\duanc\Desktop\python-challenge\PyBank\Resources> python .\main.py        
+this is header prcossed: ['Date', 'Profit/Losses']
+Financial Analysis
+-----------------------------------
+Total:86
+Total: $22564198
+Average Count: $-8311.11
+Greatest Increasse in Profits: Aug-16 ($1862002)
+Greatest Decreasse in Profits: Feb-14 ($-1825558)
+PS C:\Users\duanc\Desktop\python-challenge\PyBank\Resources> 
