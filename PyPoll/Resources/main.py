@@ -26,6 +26,7 @@ with open(csvpath) as csvfile:
         else: 
             candidate.append(elementname)
     Finallist=candidate
+    #find the final non duplicated candidates
     #print(Finallist)
     for indexcounter in range(len(Finallist)):
         counttracker.append(0)
@@ -49,3 +50,18 @@ for k in range(len(Finallist)):
 print("----------------------------------------------")
 winner=Finallist[percentageholder.index(max(percentageholder))]
 print(f"Winner: {winner}")
+print("----------------------------------------------")
+outputpath=os.path.join('..','analysis','analysisPyPoll.txt')
+with open(outputpath,'w') as txt:
+    txt.write("Election Result\n")
+    txt.write("----------------------------------------------\n")
+    txt.write(f"Total Votes: {totalvote}\n")
+    txt.write("----------------------------------------------\n")
+    for ii in range(len(Finallist)):
+        txt.write(f"{Finallist[ii]}: {percentageholder[ii]}% ({counttracker[ii]})\n")
+    txt.write("----------------------------------------------\n")
+    txt.write(f"Winner: {winner}\n") 
+    txt.write("----------------------------------------------\n")
+    
+
+        

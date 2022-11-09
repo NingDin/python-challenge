@@ -21,12 +21,14 @@ with open(csvpath) as csvfile:
 
         timeaggregagte=row[0].split('-')
         month=timeaggregagte[0]
+        #find the month 
         #print(month)
         rownext=L[i+1]
         timeaggregagtenext=rownext[0].split('-')
         monthnext=timeaggregagtenext[0]
         #print(monthnext)
         if month !=monthnext:
+        #count the different months
             mounthcount+=1
         thismonthProfitloss=int(row[1])
         nextmontProfitloss=int(rownext[1])
@@ -55,8 +57,19 @@ yearLargestDecreasehappend=largestDecreaseChangeset[0]
 
 print("Financial Analysis")
 print("-----------------------------------")
-print(f"Total:{mounthcount}")
+print(f"Total Months:{mounthcount}")
 print(f'Total: ${finalprofitloss}')
-print(f"Average Count: ${round((avgChange),2)}")
+print(f"Average Change: ${round((avgChange),2)}")
 print(f"Greatest Increasse in Profits: {yearLargestincreasehappened} (${largest})")
 print(f"Greatest Decreasse in Profits: {yearLargestDecreasehappend} (${minvalue})")
+#export as excel
+outputpath=os.path.join("..","analysis","analysisPybank.txt")
+#print(outputpath)
+with open(outputpath,'w') as txt:
+    txt.write("Financial Analysis\n")
+    txt.write("-----------------------------------\n")
+    txt.write(f"Total Months:{mounthcount}\n")
+    txt.write(f'Total: ${finalprofitloss}\n')
+    txt.write(f"Average Change: ${round((avgChange),2)}\n")
+    txt.write(f"Greatest Increasse in Profits: {yearLargestincreasehappened} (${largest})\n")
+    txt.write(f'Greatest Decreasse in Profits: {yearLargestDecreasehappend} (${minvalue})')
